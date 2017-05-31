@@ -44,11 +44,8 @@ gulp.task('page', function(){
 			upCaseName: cap(name)
 		}))
 		.pipe(rename(function(path){
-			console.log("1", path.basename);
 			path.basename = path.basename.replace('temp', name);
-			
-			console.log("2", path.basename);
-			path.basename = path.basename.replace('.temp', '');
+			path.extname = path.extname.replace('tmp', 'ts');
 		}))
 		.pipe(gulp.dest(destPath));
 });
