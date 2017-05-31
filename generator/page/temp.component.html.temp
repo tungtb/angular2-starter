@@ -1,0 +1,7 @@
+<div>
+  <h1 x-large class="sample-content">Your Content Here</h1>
+  <div>
+    <h4>A simple page - <%= upCaseName %></h4>
+  </div>
+
+</div>

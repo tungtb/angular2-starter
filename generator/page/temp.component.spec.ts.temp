@@ -1,0 +1,25 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { <%= upCaseName %>Component } from './<%= name %>.component';
+
+describe('<%= upCaseName %>Component', () => {
+  let component: <%= upCaseName %>Component;
+  let fixture: ComponentFixture<<%= upCaseName %>Component>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ <%= upCaseName %>Component ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(<%= upCaseName %>Component);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should be created', () => {
+    expect(component).toBeTruthy();
+  });
+});
