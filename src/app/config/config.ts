@@ -11,7 +11,7 @@ export class Config {
     initConfigData() {
         this._config = {};
         this._env = {};
-        this._config['apiUrl'] = "https://www-dev.sokujob.com/webapi/v3/shop/get_access_control";
+        this._config['apiUrl'] = "https://www-dev.sokujob.com/webapi/v3/";
     }
 
     getEnv(key: any) {

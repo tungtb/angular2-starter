@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
+import { CoreService } from "../../core/core.service";
+import { Http } from "@angular/http";
 
 @Injectable()
-export class InterviewService {
+export class InterviewService extends CoreService {
 
-  constructor() { }
+    constructor(_http: Http) {
+        super(_http);
+    }
 
 }

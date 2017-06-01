@@ -11,13 +11,14 @@ declare var $: any;
 export class CoreService {
 
     private baseUrl: string;
+    private _config: Config = new Config;
 
-    constructor(private _config: Config, private _http: Http) {
-        this.baseUrl = _config.get('apiUrl');
+    constructor(private _http: Http) {
+        this.baseUrl = this._config.get('apiUrl');
     }
 
-    public post(bodyParam: object, url?: string, options?: RequestOptionsArgs) {
-        let postUrl = this.baseUrl;
+    public post(uri: string, bodyParam: object, url?: string, options?: RequestOptionsArgs) {
+        let postUrl = this.baseUrl + uri;
         if(!!url) postUrl = url;
         return this._request(RequestMethod.Post, postUrl, $.param(bodyParam), options);
     }

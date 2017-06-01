@@ -31,6 +31,7 @@ import { AboutComponent } from './pages/about';
 import { NoContentComponent } from './pages/no-content';
 import { XLargeDirective } from './pages/home/x-large';
 import { GenderPipe } from './pipes/gender.pipe';
+import { CookieModule } from 'ngx-cookie';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -59,6 +60,7 @@ type StoreType = {
   ],
   imports: [ // import Angular's modules
     BrowserModule,
+    CookieModule.forRoot(),
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
