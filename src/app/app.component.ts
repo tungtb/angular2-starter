@@ -2,9 +2,9 @@
  * Angular 2 decorators and services
  */
 import {
-  Component,
-  OnInit,
-  ViewEncapsulation
+    Component,
+    OnInit,
+    ViewEncapsulation
 } from '@angular/core';
 import { AppState } from './app.service';
 
@@ -13,12 +13,12 @@ import { AppState } from './app.service';
  * Top Level Component
  */
 @Component({
-  selector: 'app',
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: [
-    './app.component.css'
-  ],
-  template: `
+    selector: 'app',
+    encapsulation: ViewEncapsulation.None,
+    styleUrls: [
+        './app.component.css'
+    ],
+    template: `
     <nav>
       <a [routerLink]=" ['./'] "
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
@@ -59,17 +59,17 @@ import { AppState } from './app.service';
   `
 })
 export class AppComponent implements OnInit {
-  public angularclassLogo = 'assets/img/angularclass-avatar.png';
-  public name = 'Angular 2 Webpack Starter';
-  public url = 'https://twitter.com/AngularClass';
+    public angularclassLogo = 'assets/img/angularclass-avatar.png';
+    public name = 'Angular 2 Webpack Starter';
+    public url = 'https://twitter.com/AngularClass';
 
-  constructor(
-    public appState: AppState
-  ) {}
+    constructor(
+        public appState: AppState
+    ) { }
 
-  public ngOnInit() {
-    console.log('Initial App State', this.appState.state);
-  }
+    public ngOnInit() {
+        console.log('Initial App State', this.appState.state);
+    }
 
 }
 
