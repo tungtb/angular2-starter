@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-<%= name %>',
-  providers: [
-    
-  ],
-  templateUrl: './<%= name %>.component.html',
-  styleUrls: ['./<%= name %>.component.css']
+	selector: 'app-<%= name %>',
+	providers: [
+		
+	],
+	templateUrl: './<%= name %>.component.html',
+	styleUrls: ['./<%= name %>.component.css']
 })
 export class <%= upCaseName %>Component implements OnInit {
 
 	constructor() { }
 
 	ngOnInit() {
-		console.log("xxx");
+		console.log("Init <%= upCaseName %>");
 	}
 
 }

@@ -13,7 +13,7 @@ export class CoreService {
     private baseUrl: string;
     private _config: Config = new Config;
 
-    constructor(private _http: Http) {
+    constructor(public _http: Http) {
         this.baseUrl = this._config.get('apiUrl');
     }
 

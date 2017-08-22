@@ -30,50 +30,37 @@ import { UserService } from '../../services/apis/user/user.service';
 export class HomeComponent implements OnInit {
     // Set our default values
     public localState = { value: '' };
+    private userLoginData;
 
     // TypeScript public modifiers
     constructor(
         public appState: AppState,
         public title: Title,
-        private router: Router,
+        public router: Router,
         private _config: Config,
         private CoreService: CoreService,
         private InterviewService: InterviewService,
-        private UserService: UserService
+        public UserService: UserService
     ) {
-        console.log('config', this._config.get('apiUrl'));
+        
     }
 
     public ngOnInit() {
         console.log('hello `Home` component');
-        var params = {
-            'accesskey': 'GJNvCjj5USfvaKRloJZj1k44eGRyckljN3pWUTNKblhtdGNybElvWERWQlZPMUp1d3F5QVFwWTBSVkU'
-        };
-        this.InterviewService.post('shop/get_access_control', params)
-            .subscribe((res) => {
-                console.log('tungtb', res);
-            }, (err) => {
-                console.log('tungtb err', err);
-            });
-        if(!this.getUserSessionData()){
-            this.UserService.login({
-                    'login_id': 'z0000084',
-                    'password': 'soku',
-                    'login_type': 3
-                })
-                .subscribe((res) => {
-                    console.log('UserService', res['result']);
-                    this.UserService.setCookieUserInfo(res['result']);
-                }, (err) => {
-                    console.log('UserService err', err);
-                });
-        }
+        this.getUserSessionData();
+        // var params = {
+        //     'accesskey': 'GJNvCjj5USfvaKRloJZj1k44eGRyckljN3pWUTNKblhtdGNybElvWERWQlZPMUp1d3F5QVFwWTBSVkU'
+        // };
+        // this.InterviewService.post('shop/get_access_control', params)
+        //     .subscribe((res) => {
+        //         console.log('tungtb', res);
+        //     }, (err) => {
+        //         console.log('tungtb err', err);
+        //     });
     }
 
     public getUserSessionData() {
-        var userSessionData = this.UserService.getCookieUserInfo();
-        console.log('userSessionData', userSessionData);
-        return userSessionData;
+        this.userLoginData = this.UserService.getCookieUserInfo();
     }
 
     public submitState(value: string) {

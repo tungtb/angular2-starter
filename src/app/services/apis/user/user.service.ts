@@ -2,12 +2,17 @@ import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
 import { CoreService } from "../../core/core.service";
 import { Http } from "@angular/http";
+import { Router } from '@angular/router';
 
 @Injectable()
 export class UserService extends CoreService {
 
-    constructor(_http: Http, private _cookieService: CookieService) {
-        super(_http);
+    constructor(
+        public Http: Http,
+        private CookieService: CookieService,
+        private Router: Router
+    ) {
+        super(Http);
     }
 
     public login(params) {
@@ -16,12 +21,21 @@ export class UserService extends CoreService {
         return this.post('user/login', params);
     }
 
+    public logout(linkTo = '/login') {
+        this.CookieService.remove('userSession');
+        this.Router.navigate([linkTo]);
+    }
+
     public setCookieUserInfo(userData) {
-        this._cookieService.putObject('userSession', userData);
+        this.CookieService.putObject('userSession', userData);
     }
 
     public getCookieUserInfo() {
-        return this._cookieService.getObject('userSession');
+        return this.CookieService.getObject('userSession');
+    }
+
+    public isLoggedIn() {
+        return this.CookieService.getObject('userSession') ? true : false;
     }
 
     private S4() {
@@ -29,6 +43,6 @@ export class UserService extends CoreService {
     }
 
     private genUUID() {
-        return (this.S4() + this.S4() + "-" + this.S4() + "-4" + this.S4().substr(0,3) + "-" + this.S4() + "-" + this.S4() + this.S4() + this.S4()).toLowerCase();
+        return (this.S4() + this.S4() + "-" + this.S4() + "-4" + this.S4().substr(0, 3) + "-" + this.S4() + "-" + this.S4() + this.S4() + this.S4()).toLowerCase();
     }
 }
