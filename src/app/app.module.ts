@@ -33,7 +33,6 @@ import { AboutComponent } from './pages/about';
 import { NoContentComponent } from './pages/no-content';
 import { XLargeDirective } from './pages/home/x-large';
 import { NavbarComponent } from './components/navbar';
-import { BashComponent } from './components/bash';
 import { GenderPipe } from './pipes/gender.pipe';
 import { CookieModule } from 'ngx-cookie';
 
@@ -63,7 +62,6 @@ type StoreType = {
 		NoContentComponent,
 		XLargeDirective,
 		NavbarComponent,
-		BashComponent,
 		GenderPipe
 	],
 	imports: [ // import Angular's modules
