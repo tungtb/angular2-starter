@@ -37,6 +37,8 @@ import { XLargeDirective } from './pages/home/x-large';
 import { NavbarComponent } from './components/navbar';
 import { GenderPipe } from './pipes/gender.pipe';
 import { CookieModule } from 'ngx-cookie';
+//Directive
+import { InfiniteScrollDirective } from './directives/infinite-scroll/infinite-scroll.directive';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -64,7 +66,8 @@ type StoreType = {
 		NoContentComponent,
 		XLargeDirective,
 		NavbarComponent,
-		GenderPipe
+		GenderPipe,
+		InfiniteScrollDirective
 	],
 	imports: [ // import Angular's modules
 		BrowserModule,
