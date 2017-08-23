@@ -8,7 +8,6 @@ import { Router, NavigationStart, NavigationEnd, NavigationError, NavigationCanc
 import { AppState } from '../../app.service';
 import { Title } from './title';
 import { XLargeDirective } from './x-large';
-import { Config } from '../../config/config';
 import { CoreService } from '../../services/core/core.service';
 import { InterviewService } from '../../services/apis/interview/interview.service';
 import { UserService } from '../../services/apis/user/user.service';
@@ -20,7 +19,7 @@ import { UserService } from '../../services/apis/user/user.service';
     selector: 'home',  // <home></home>
     // We need to tell Angular's Dependency Injection which providers are in our app.
     providers: [
-        Title,Config,CoreService,InterviewService,UserService
+        Title,CoreService,InterviewService,UserService
     ],
     // Our list of styles in our component. We may add more to compose many styles together
     styleUrls: ['./home.component.css'],
@@ -37,7 +36,6 @@ export class HomeComponent implements OnInit {
         public appState: AppState,
         public title: Title,
         public router: Router,
-        private _config: Config,
         private CoreService: CoreService,
         private InterviewService: InterviewService,
         public UserService: UserService

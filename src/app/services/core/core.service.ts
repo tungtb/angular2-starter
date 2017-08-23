@@ -11,10 +11,9 @@ declare var $: any;
 export class CoreService {
 
     private baseUrl: string;
-    private _config: Config = new Config;
 
     constructor(public _http: Http) {
-        this.baseUrl = this._config.get('apiUrl');
+        this.baseUrl = Config.apiUrl;
     }
 
     public post(uri: string, bodyParam: object, url?: string, options?: RequestOptionsArgs) {
