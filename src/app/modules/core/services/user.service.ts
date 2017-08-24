@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
-import { CoreService } from "../../core/core.service";
+import { CoreService } from "./core.service";
 import { Http } from "@angular/http";
 import { Router } from '@angular/router';
 

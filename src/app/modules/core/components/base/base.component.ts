@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../../services/apis/user/user.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
 	selector: 'app-base',
 	providers: [
-		UserService
+		
 	],
 	templateUrl: './base.component.html',
 	styleUrls: ['./base.component.css']

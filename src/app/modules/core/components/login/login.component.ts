@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { UserService } from '../../services/apis/user/user.service';
-import { LoadingService } from '../../services/utils/loading/loading.service';
+import { UserService } from '../../services/user.service';
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
 	selector: 'app-login',
 	providers: [
-		LoadingService, UserService
+		
 	],
 	templateUrl: './login.component.html',
 	styleUrls: ['./login.component.css']

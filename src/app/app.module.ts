@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+// import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {
 	NgModule,
@@ -28,17 +28,15 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { BaseComponent } from './pages/base';
-import { LoginComponent } from './pages/login';
-import { HomeComponent } from './pages/home';
 import { AboutComponent } from './pages/about';
 import { NoContentComponent } from './pages/no-content';
-import { XLargeDirective } from './pages/home/x-large';
-import { NavbarComponent } from './components/navbar';
 import { GenderPipe } from './pipes/gender.pipe';
 import { CookieModule } from 'ngx-cookie';
 //Directive
 import { InfiniteScrollDirective } from './directives/infinite-scroll/infinite-scroll.directive';
+
+/* Feature Modules */
+import { CoreModule } from './modules/core/core.module';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -58,23 +56,19 @@ type StoreType = {
 @NgModule({
 	bootstrap: [AppComponent],
 	declarations: [
-		BaseComponent,
-		LoginComponent,
 		AppComponent,
 		AboutComponent,
-		HomeComponent,
 		NoContentComponent,
-		XLargeDirective,
-		NavbarComponent,
 		GenderPipe,
 		InfiniteScrollDirective
 	],
 	imports: [ // import Angular's modules
 		BrowserModule,
 		CookieModule.forRoot(),
-		FormsModule,
+		// FormsModule,
 		HttpModule,
 		// MdButtonModule, MdCheckboxModule,BrowserAnimationsModule,MdSlideToggleModule,
+		CoreModule,
 		RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules })
 	],
 	providers: [ // expose our Services and Providers into Angular's dependency injection
