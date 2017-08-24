@@ -14,8 +14,8 @@ import {
 	RouterModule,
 	PreloadAllModules
 } from '@angular/router';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdButtonModule, MdCheckboxModule, MdSlideToggleModule} from '@angular/material';
+// import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+// import {MdButtonModule, MdCheckboxModule, MdSlideToggleModule} from '@angular/material';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -74,7 +74,7 @@ type StoreType = {
 		CookieModule.forRoot(),
 		FormsModule,
 		HttpModule,
-		MdButtonModule, MdCheckboxModule,BrowserAnimationsModule,MdSlideToggleModule,
+		// MdButtonModule, MdCheckboxModule,BrowserAnimationsModule,MdSlideToggleModule,
 		RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules })
 	],
 	providers: [ // expose our Services and Providers into Angular's dependency injection
