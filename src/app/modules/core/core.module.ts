@@ -11,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
 import { BaseComponent } from './components/base';
 import { NavbarComponent } from './components/navbar';
 import { LoginComponent } from './components/login';
+import { NoContentComponent } from './components/no-content';
 import { CoreRoutingModule } from './core.routes';
 
 import { UserService } from './services/user.service';
@@ -18,8 +19,8 @@ import { LoadingService } from './services/loading.service';
 
 @NgModule({
     imports: [CommonModule, CookieModule.forRoot(), SharedModule, CoreRoutingModule],
-    declarations: [BaseComponent, NavbarComponent, LoginComponent],
-    exports: [BaseComponent, NavbarComponent, LoginComponent],
+    declarations: [BaseComponent, NavbarComponent, LoginComponent, NoContentComponent],
+    exports: [BaseComponent, NavbarComponent, LoginComponent, NoContentComponent],
     providers: [UserService, LoadingService]
 })
 export class CoreModule {
