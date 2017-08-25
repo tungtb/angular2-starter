@@ -4,8 +4,8 @@ import { NoContentComponent } from './modules/core/components/no-content';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: '**', component: NoContentComponent },
     { path: 'home', loadChildren: './modules/home/home.module#HomeModule' },
+    { path: '**', component: NoContentComponent },
 ];
 
 @NgModule({
