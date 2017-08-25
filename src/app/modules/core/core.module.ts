@@ -4,6 +4,7 @@ import {
     Optional, SkipSelf
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpModule } from '@angular/http';
 import { CookieModule } from 'ngx-cookie';
 
 import { SharedModule } from '../shared/shared.module';
@@ -18,7 +19,7 @@ import { UserService } from './services/user.service';
 import { LoadingService } from './services/loading.service';
 
 @NgModule({
-    imports: [CommonModule, CookieModule.forRoot(), SharedModule, CoreRoutingModule],
+    imports: [CommonModule, HttpModule, CookieModule.forRoot(), SharedModule, CoreRoutingModule],
     declarations: [BaseComponent, NavbarComponent, LoginComponent, NoContentComponent],
     exports: [BaseComponent, NavbarComponent, LoginComponent, NoContentComponent],
     providers: [UserService, LoadingService]

@@ -7,10 +7,8 @@ import { NoContentComponent } from './components/no-content';
 
 @NgModule({
     imports: [RouterModule.forChild([
-        { path: '', redirectTo: 'home', pathMatch: 'full' },
         { path: 'login', component: LoginComponent },
-        { path: 'home', loadChildren: '../home/home.module#HomeModule' },
-        { path: '**',    component: NoContentComponent },
+        { path: 'base',    component: BaseComponent },
     ])],
     exports: [RouterModule]
 })
