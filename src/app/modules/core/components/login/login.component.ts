@@ -7,7 +7,7 @@ import { LoadingService } from '../../services/loading.service';
 @Component({
 	selector: 'app-login',
 	providers: [
-		
+
 	],
 	templateUrl: './login.component.html',
 	styleUrls: ['./login.component.css']
@@ -15,7 +15,7 @@ import { LoadingService } from '../../services/loading.service';
 export class LoginComponent implements OnInit {
 
 	private user: any = {
-		email: '',
+		userName: '',
 		password: ''
 	};
 	private loginError;
@@ -37,11 +37,11 @@ export class LoginComponent implements OnInit {
 
 	formValid() {
 		this.loginError = '';
-		if (!this.user.email) {
-			this.loginError += "<p>User email is required ! </p>";
+		if (!this.user.userName) {
+			this.loginError += "<p>User name is required ! </p>";
 		}
 		if (!this.user.password) {
-			this.loginError += "<p>User password is required !</p>";
+			this.loginError += "<p>Password is required !</p>";
 		}
 		return this.loginError.length > 0 ? false : true;
 	}
@@ -50,15 +50,19 @@ export class LoginComponent implements OnInit {
 		if (this.formValid()) {
 			this.LoadingService.showLoading("body");
 			this.UserService.login({
-				'login_id': 'z0000084',
-				'password': 'soku',
+				'login_id': this.user.userName,
+				'password': this.user.password,
 				'login_type': 3
 			})
 				.subscribe((res) => {
 					console.log('UserService', res['result']);
 					this.LoadingService.hideLoading("body");
-					this.UserService.setCookieUserInfo(res['result']);
-					this.Router.navigate(['']);
+					if (res['result']['status'] == 'NG') {
+						this.loginError = res['result']['error']['message']
+					} else {
+						this.UserService.setCookieUserInfo(res['result']);
+						this.Router.navigate(['']);
+					}
 				}, (err) => {
 					this.LoadingService.hideLoading("body");
 					console.log('UserService err', err);

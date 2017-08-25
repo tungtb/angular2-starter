@@ -7,12 +7,35 @@ import { Router } from '@angular/router';
 @Injectable()
 export class UserService extends CoreService {
 
+    private userList = [];
+
     constructor(
         public Http: Http,
         private CookieService: CookieService,
         private Router: Router
     ) {
         super(Http);
+        this.initData();
+    }
+
+    private initData() {
+        for (let i = 1; i <= 20; i++) {
+            this.userList.push({ id: i, name: 'user ' + i });
+        }
+    }
+
+    public get(name) {
+        if (!!this[name]) {
+            return this[name];
+        }
+        return null;
+    }
+
+    public add() {
+        let index = this.userList.length + 1;
+        for (let i = index; i <= index + 10; i++) {
+            this.userList.push({ id: i, name: 'user ' + i });
+        }
     }
 
     public login(params) {

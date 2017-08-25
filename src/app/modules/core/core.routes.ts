@@ -6,8 +6,7 @@ import { LoginComponent } from './components/login';
 
 @NgModule({
     imports: [RouterModule.forChild([
-        // { path: '', redirectTo: 'contact', pathMatch: 'full' },
-        { path: '', component: BaseComponent },
+        { path: '', redirectTo: 'home', pathMatch: 'full' },
         { path: 'login', component: LoginComponent },
         { path: 'home', loadChildren: '../home/home.module#HomeModule' },
     ])],

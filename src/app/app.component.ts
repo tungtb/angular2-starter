@@ -7,6 +7,8 @@ import {
     ViewEncapsulation
 } from '@angular/core';
 import { AppState } from './app.service';
+import { Router } from '@angular/router';
+import { UserService } from './modules/core/services/user.service';
 
 /*
  * App Component
@@ -21,18 +23,28 @@ import { AppState } from './app.service';
     template: '<app-navbar></app-navbar><router-outlet></router-outlet>'
 })
 export class AppComponent implements OnInit {
-    public angularclassLogo = 'assets/img/angularclass-avatar.png';
-    public name = 'Angular 2 Webpack Starter';
-    public url = 'https://twitter.com/AngularClass';
+
+    private userLoginData = null;
 
     constructor(
-        public appState: AppState
-    ) { }
+        public appState: AppState,
+        private Router: Router,
+        private UserService: UserService
+    ) {
+        this.checkLogin();
+    }
 
     public ngOnInit() {
         console.log('Initial App State', this.appState.state);
     }
 
+    private checkLogin() {
+        this.userLoginData = this.UserService.getCookieUserInfo();
+        console.log("AppComponent checkLogin", this.userLoginData);
+        if (!this.userLoginData) {
+            this.Router.navigate(['/login']);
+        }
+    }
 }
 
 /*

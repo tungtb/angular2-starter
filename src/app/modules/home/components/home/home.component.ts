@@ -4,6 +4,8 @@ import {
     OnInit
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoadingService } from '../../../core/services/loading.service';
+import { UserService } from '../../../core/services/user.service';
 
 @Component({
     // The selector is what angular internally uses
@@ -23,26 +25,39 @@ export class HomeComponent implements OnInit {
     // Set our default values
     public localState = { value: '' };
     private userLoginData;
+    private users = [];
 
     // TypeScript public modifiers
     constructor(
-        public router: Router,
-        // private CoreService: CoreService,
-        // private InterviewService: InterviewService,
-        // public UserService: UserService
+        private Router: Router,
+        private LoadingService: LoadingService,
+        private UserService: UserService
     ) {
-        
+        this.users = this.UserService.get('userList');
     }
 
     public ngOnInit() {
         console.log('hello `Home` component');
     }
 
-    public getUserSessionData() {
-        // this.userLoginData = this.UserService.getCookieUserInfo();
+    updateList() {
+        this.LoadingService.showLoading("body");
+        setTimeout(() => {
+            this.UserService.add();
+            this.LoadingService.hideLoading("body");
+        }, 3000);
+        console.log("Emit scroll");
     }
 
-    public submitState(value: string) {
-        console.log('submitState', value);
+    addAdoptionItem() {
+        // this.AdoptionService.add();
+    }
+
+    getAdoptionList() {
+        // console.log(this.AdoptionService.get('adoptionList'));
+    }
+
+    showAdoptionDetail(detailId) {
+        // this.Router.navigate(['/home-detail', detailId]);
     }
 }

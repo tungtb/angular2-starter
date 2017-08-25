@@ -1,38 +1,24 @@
 <span defaultOverlayTarget></span>
-<div>
-	<h1 class="sample-content">Your Content Here</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="row">
+				<div infiniteScroll (scrolly)="updateList();" style="width: 500px; height: 300px;border: 1px solid red;overflow: auto;">
+					<div *ngFor="let item of users; let i = index" (click)="showAdoptionDetail(item.id)">
+						<a routerLink="{{item.id}}">
+							{{item.id}}: {{item.name}}
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<button disableButton (click)="addAdoptionItem()" style="width: 200px; height: 100px;">Click to disable</button>
+				<button (click)="getAdoptionList()">Get adoption list</button>
+			</div>
+		</div>
 
-	<hr>
-
-	<div>
-		For hot module reloading run
-		<pre>npm run start:hmr</pre>
+		<div class="col-sm-6">
+			<router-outlet></router-outlet>
+		</div>
 	</div>
-
-	<hr>
-
-	<div>
-		<h4>Local State</h4>
-
-		<form (ngSubmit)="submitState(localState.value)" autocomplete="off">
-
-			<input [value]="localState.value" (input)="localState.value = $event.target.value" placeholder="Submit Local State to App State"
-			 autofocus>
-
-			<button>Submit Value</button>
-			<button (ngClick)="getUserSessionData()">Get user data</button>
-		</form>
-		<!--
-        <input type="text" [value]="localState.value" (input)="localState.value = $event.target.value" autofocus>
-        Rather than wiring up two-way data-binding ourselves with [value] and (input)
-        we can use Angular's [(ngModel)] syntax
-        <input type="text" name="textInput" [(ngModel)]="localState.value" autofocus>
-      -->
-
-		<pre>this.localState = {{ localState | json }}</pre>
-		<pre>Data: {{userLoginData | json}}</pre>
-		<!-- <button md-button>Click me!</button>
-		<md-slide-toggle>Slide me!</md-slide-toggle> -->
-	</div>
-
 </div>

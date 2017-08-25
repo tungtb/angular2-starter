@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-// import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {
 	NgModule,
@@ -30,10 +29,6 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { AboutComponent } from './pages/about';
 import { NoContentComponent } from './pages/no-content';
-import { GenderPipe } from './pipes/gender.pipe';
-import { CookieModule } from 'ngx-cookie';
-//Directive
-import { InfiniteScrollDirective } from './directives/infinite-scroll/infinite-scroll.directive';
 
 /* Feature Modules */
 import { CoreModule } from './modules/core/core.module';
@@ -59,13 +54,9 @@ type StoreType = {
 		AppComponent,
 		AboutComponent,
 		NoContentComponent,
-		GenderPipe,
-		InfiniteScrollDirective
 	],
 	imports: [ // import Angular's modules
 		BrowserModule,
-		CookieModule.forRoot(),
-		// FormsModule,
 		HttpModule,
 		// MdButtonModule, MdCheckboxModule,BrowserAnimationsModule,MdSlideToggleModule,
 		CoreModule,
