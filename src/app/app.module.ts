@@ -1,13 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {
-	NgModule,
-	ApplicationRef
-} from '@angular/core';
-import {
-	removeNgStyles,
-	createNewHosts,
-	createInputTransfer
-} from '@angularclass/hmr';
+import { NgModule, ApplicationRef } from '@angular/core';
+import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -25,10 +18,7 @@ import { AppState, InternalStateType } from './app.service';
 import { CoreModule } from './modules/core/core.module';
 
 // Application wide providers
-const APP_PROVIDERS = [
-	...APP_RESOLVER_PROVIDERS,
-	AppState
-];
+const APP_PROVIDERS = [...APP_RESOLVER_PROVIDERS, AppState];
 
 type StoreType = {
 	state: InternalStateType,

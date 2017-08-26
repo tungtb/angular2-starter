@@ -1,0 +1,23 @@
+import { NgModule } from '@angular/core';
+import {
+	Routes,
+	RouterModule
+} from '@angular/router';
+
+import { <%= upCaseName %>Component } from './components/<%= name %>';
+
+const routes: Routes = [
+	{
+		path: '',
+		component: <%= upCaseName %>Component,
+		children: [
+            
+		]
+	}
+];
+
+@NgModule({
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule]
+})
+export class <%= upCaseName %>RoutingModule { }

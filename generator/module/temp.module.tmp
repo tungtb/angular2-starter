@@ -1,0 +1,14 @@
+import { NgModule } from '@angular/core';
+
+import { SharedModule } from '../shared/shared.module';
+
+import { <%= upCaseName %>Component } from './components/<%= name %>';
+import { <%= upCaseName %>RoutingModule } from './<%= name %>.routes';
+
+@NgModule({
+	imports: [SharedModule, <%= upCaseName %>RoutingModule],
+	declarations: [
+		<%= upCaseName %>Component
+	]
+})
+export class <%= upCaseName %>Module { }
